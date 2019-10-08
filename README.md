@@ -32,18 +32,18 @@ Before getting started, you will need to have Python installed on your machine. 
 ## Libraries
 To run these projects, you will first need to install the following libraries. If you have chosen to run Python through Anaconda, there is no need to individually install the below:
 
-Pandas: Used for data manipulation and analysis
-Numpy: Supports multi-dimensional matrices and arrays, provides a large number of mathematical functions
-Matplotlib: A 2D graphical plotting library
-Seaborn: Another data visualisation libary, based on Matplotlib
-Statsmodels: Enables the conduct of statistical analysis
-Sklearn: Provides tools for data analysis
-Itertools: Implements a number of interator building blocks (e.g. permutations, combinations etc.)
-Folium: Supports the creation of interactive maps
-Ast:  Helps Python applications to process trees of the Python abstract syntax grammar.
+**Pandas**: Used for data manipulation and analysis
+**Numpy**: Supports multi-dimensional matrices and arrays, provides a large number of mathematical functions
+**Matplotlib**: A 2D graphical plotting library
+**Seaborn**: Another data visualisation libary, based on Matplotlib
+**Statsmodels**: Enables the conduct of statistical analysis
+**Sklearn**: Provides tools for data analysis
+**Itertools**: Implements a number of interator building blocks (e.g. permutations, combinations etc.)
+**Folium**: Supports the creation of interactive maps
+**Ast**:  Helps Python applications to process trees of the Python abstract syntax grammar.
 
 
-## Forking & Cloning the Repoistory onto your Local Machine
+## Forking & Cloning the Repository onto your Local Machine
 
 1. Within Github, click 'Fork'
 2. Once Forked, copy the link https://github.com/[YOUR NAME]/dsc-mod-4-project-online-ds-ft-071519
