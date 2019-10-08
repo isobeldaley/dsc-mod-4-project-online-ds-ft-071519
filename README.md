@@ -1,100 +1,65 @@
+# Module 4 Project - Predicting House Prices Using Data From Zillow
 
-# Module 4 -  Final Project Specifications
+## Background
 
-## Introduction
+Following a recent funding round a property start-up, *Investate*, have raised $100 million.  To ensure that this money is invested wisely, we have been appointed to **identify the top 5 best zipcodes in which to invest**. 
 
-In this lesson, we'll review all the guidelines and specifications for the final project for Module 4.
+## Data
 
-## Objectives
+To investigate this problem, data has been sourced from *Zillow*.  *Zillow* is the leading real estate and rental marketplace in the US.  It maintains a database of 110 million properties across the country.  From this, they are able to provide zipcode-level sales and rental price history dating back to 1996.  
 
-* Understand all required aspects of the Final Project for Module 4
-* Understand all required deliverables
-* Understand what constitutes a successful project
+## Approach
 
-### Final Project Summary
-
-Another module down--you're absolutely crushing it! For this project, you'll get to flex your **_Time-Series_** muscles!
-
-<img src='https://raw.githubusercontent.com/learn-co-curriculum/dsc-mod-4-project/master/images/timegif.gif'>
-
-For this module's final project, we're going to put your newfound **_Time Series Analysis_** skills to the test. You will be forecasting real estate prices of various zipcodes using data from [Zillow](https://www.zillow.com/research/data/). However, this won't be as straightforward as just running a time-series analysis--you're going to have to make some data-driven decisions and think critically along the way!
-
-### The Project
-
-For this project, you will be acting as a consultant for a fictional real-estate investment firm. The firm has asked you what seems like a simple question:
-
-> what are the top 5 best zipcodes for us to invest in?
-
-This may seem like a simple question at first glance, but there's more than a little ambiguity here that you'll have to think through in order to provide a solid recommendation. Should your recommendation be focused on profit margins only? What about risk? What sort of time horizon are you predicting against?  Your recommendation will need to detail your rationale and answer any sort of lingering questions like these in order to demonstrate how you define "best".
-
-As mentioned previously, the data you'll be working with comes from the [Zillow Research Page](https://www.zillow.com/research/data/). However, there are many options on that page, and making sure you have exactly what you need can be a bit confusing. For simplicity's sake, we have already provided the dataset for you in this repo--you will find it in the file `zillow_data.csv`.
-
-## The Deliverables
-
-The goal of this project is to have you complete a very common real-world task in regard to Time-Series Modeling. However, real world problems often come with a significant degree of ambiguity, which requires you to use your knowledge of statistics and data science to think critically about and answer. While the main task in this project is Time-Series Modeling, that isn't the overall goal--it is important to understand that Time-Series Modeling is a tool in your toolbox, and the forecasts it provides you are what you'll use to answer important questions.
-
-In short, to pass this project, demonstrating the quality and thoughtfulness of your overall recommendation is at least as important as successfully building a Time-Series model!
-
-Online students should complete the following 4 deliverables for this project:
-
-* A well-documented **_Jupyter Notebook_** containing any code you've written for this project (use the notebook in this repo, `mod_4_starter_notebook.ipynb`). This work will need to be pushed to your GitHub repository in order to submit your project.
-* An organized **README.md** file in the GitHub repository that describes the contents of the repository. This file should be the source of information for navigating through the repository.
-* A **_[Blog post](https://github.com/learn-co-curriculum/dsc-welcome-blogging)_**.
-* An **_'Executive Summary' PowerPoint Presentation_** that explains your rationale and methodology for determining the best zipcodes for investment.
-
-Note: On-campus students may have different deliverables, please speak with your instructor.
-
-### Jupyter Notebook Must-Haves
-
-For this project, you will be provided with a jupyter notebook containing some starter code. If you inspect the zillow dataset file, you'll notice that the datetimes for each sale are the actual column names--this is a format you probably haven't seen before. To ensure that you're not blocked by preprocessing, we've provided some helper functions to help simplify getting the data into the correct format. You're not required to use this notebook or keep it in its current format, but we strongly recommend you consider making use of the helper functions so you can spend your time working on the parts of the project that matter.
-
-#### Organization/Code Cleanliness
-
-The notebook should be well organized, easy to follow, and code is modularized and commented where appropriate.
-
-* Level Up: The notebook contains well-formatted, professional looking markdown cells explaining any substantial code. All functions have docstrings that act as professional-quality documentation.
-* The notebook is written to technical audiences with a way to both understand your approach and reproduce your results. The target audience for this deliverable is other data scientists looking to validate your findings.
-* Data visualizations you create should be clearly labeled and contextualized--that is, they fit with the surrounding code or problems you're trying to solve. No dropping data visualizations randomly around your notebook without any context!
-
-#### Findings
-
-Your notebook should briefly mention the metrics you have defined as "best", so that any readers understand what technical metrics you are trying to optimize for (for instance, risk vs profitability, ROI yield, etc.). You do **not** need to explain or defend your your choices in the notebook--the blog post and executive summary presentation are both better suited to that sort of content. However, the notebook should provide enough context about your definition for "best investment" so that they understand what the code you are writing is trying to solve.
-
-#### Visualizations
-
-Time-Series Analysis is an area of data science that lends itself well to intuitive data visualizations. Whereas we may not be able to visualize the best choice in a classification or clustering problem with a high-dimensional dataset, that isn't an issue with Time Series data. As such, **_any findings worth mentioning in this problem are probably also worth visualizing_**. Your notebook should make use of data visualizations as appropriate to make your findings obvious to any readers.
-
-Also, remember that if a visualization is worth creating, then it's also worth taking the extra few minutes to make sure that it is easily understandable and well-formatted. When creating visualizations, make sure that they have:
-
-* A title
-* Clearly labeled X and Y axes, with appropriate scale for each
-* A legend, when necessary
-* No overlapping text that makes it hard to read
-* An intelligent use of color--multiple lines should have different colors and/or symbols to make them easily differentiable to the eye
-* An appropriate amount of information--avoid creating graphs that are "too busy"--for instance, don't create a line graph with 25 different lines on it
-
-<center><img src='images/bad-graph-1.png' height=100% width=100%>
-There's just too much going on in this graph for it to be readable--don't make the same mistake! (<a href='http://genywealth.com/wp-content/uploads/2010/03/line-graph.php_.png'>Source</a>)</center>
-
-### Blog Post Must-Haves
-
-Refer back to the [Blogging Guidelines](https://github.com/learn-co-curriculum/dsc-welcome-blogging) for the technical requirements and blog ideas.
+To provide recommendations to Investate, the following approach has been employed:
+- The data is imported and pre-processed to remove missing values and identify outliers
+- Exploratory data analysis is performed to identify:
+    - high growth states
+    - high growth counties within the high growth states
+- Data for selected counties is extracted
+- Each county dataset is split into a training and test set
+- Each dataset is assessed for evidence of stationarity, seasonality and autocorrelation.  This assists with model selection
+- Alternative models compared.  Model with best performance is selected
+- Predictions are run to calculate growth
+- Zipcodes with highest forecast growth, and excellent model performance are identified as investable
 
 
-### Executive Summary Must-Haves
+## Requirements
 
-Your presentation should:
+These instructions will guide you through the technical requirements that will need to be fulfilled, before running this project on your machine.
 
-Contain between 5-10 professional quality slides detailing:
+Before getting started, you will need to have Python installed on your machine. We recommend using Anaconda for this purpose, as it is delivered with more than 1,500 packages/libraries pre-installed.
 
-* A high-level overview of your methodology and findings, including the 5 zipcodes you recommend investing in
-* A brief explanation of what metrics you defined as "best" in order complete this project
+## Libraries
+To run these projects, you will first need to install the following libraries. If you have chosen to run Python through Anaconda, there is no need to individually install the below:
 
-As always, this prresentation should also:
+Pandas: Used for data manipulation and analysis
+Numpy: Supports multi-dimensional matrices and arrays, provides a large number of mathematical functions
+Matplotlib: A 2D graphical plotting library
+Seaborn: Another data visualisation libary, based on Matplotlib
+Statsmodels: Enables the conduct of statistical analysis
+Sklearn: Provides tools for data analysis
+Itertools: Implements a number of interator building blocks (e.g. permutations, combinations etc.)
+Folium: Supports the creation of interactive maps
+Ast:  Helps Python applications to process trees of the Python abstract syntax grammar.
 
-* Take no more than 5 minutes to present
-* Avoid technical jargon and explain results in a clear, actionable way for non-technical audiences.
 
-## Grading Rubric 
+## Forking & Cloning the Repoistory onto your Local Machine
 
-Online students can find a PDF of the grading rubric for the project [here](https://github.com/learn-co-curriculum/dsc-mod-4-project/blob/master/module4_project_rubric.pdf). _Note: On-campus students may have different requirements, please speak with your instructor._
+1. Within Github, click 'Fork'
+2. Once Forked, copy the link https://github.com/[YOUR NAME]/dsc-mod-4-project-online-ds-ft-071519
+3. Open the command line and navigate to the folder you wish to save the projec to
+4. Type 'git clone https://github.com/[YOUR NAME]/dsc-mod-4-project-online-ds-ft-071519'
+5. Open a new command line window, type 'jupyter notebook'
+6. A Jupyter notebook will open. Navitage to the folder in which your project is located, open the Jupyter notebook. You are ready to get started.
+
+
+## Files
+The relevant files within this repository are as follows:
+
+**README.md**: The file you're reading now.
+**zillow_data.csv**: This is the dataset that will be used for the investigation.  Contains median house prices for each zipcode 1996 to 2018.
+**mod_4_project.ipynb**: This is the Jupyter notebook that contains the statistical analysis
+**states.json**: A JSON file containing the geometry of each state.  This is used with Folium to create data maps
+**denver_zipcodes.csv**: Contains the latitude and longitude of each zipcode in Denver.  Used with Folium to map data.
+**california_zipcodes.csv**: Contains the latitude and longitude of each zipcode in California.  Used with Folium to map data.
+**Presentation.pdf**: This is a set of slides which provides a non-technical overview of the project's findings
