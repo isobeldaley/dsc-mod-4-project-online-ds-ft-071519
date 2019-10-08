@@ -32,15 +32,15 @@ Before getting started, you will need to have Python installed on your machine. 
 ## Libraries
 To run these projects, you will first need to install the following libraries. If you have chosen to run Python through Anaconda, there is no need to individually install the below:
 
-**Pandas**: Used for data manipulation and analysis
-**Numpy**: Supports multi-dimensional matrices and arrays, provides a large number of mathematical functions
-**Matplotlib**: A 2D graphical plotting library
-**Seaborn**: Another data visualisation libary, based on Matplotlib
-**Statsmodels**: Enables the conduct of statistical analysis
-**Sklearn**: Provides tools for data analysis
-**Itertools**: Implements a number of interator building blocks (e.g. permutations, combinations etc.)
-**Folium**: Supports the creation of interactive maps
-**Ast**:  Helps Python applications to process trees of the Python abstract syntax grammar.
+- **Pandas**: Used for data manipulation and analysis
+- **Numpy**: Supports multi-dimensional matrices and arrays, provides a large number of mathematical functions
+- **Matplotlib**: A 2D graphical plotting library
+- **Seaborn**: Another data visualisation libary, based on Matplotlib
+- **Statsmodels**: Enables the conduct of statistical analysis
+- **Sklearn**: Provides tools for data analysis
+- **Itertools**: Implements a number of interator building blocks (e.g. permutations, combinations etc.)
+- **Folium**: Supports the creation of interactive maps
+- **Ast**:  Helps Python applications to process trees of the Python abstract syntax grammar.
 
 
 ## Forking & Cloning the Repository onto your Local Machine
@@ -56,10 +56,10 @@ To run these projects, you will first need to install the following libraries. I
 ## Files
 The relevant files within this repository are as follows:
 
-**README.md**: The file you're reading now.
-**zillow_data.csv**: This is the dataset that will be used for the investigation.  Contains median house prices for each zipcode 1996 to 2018.
-**mod_4_project.ipynb**: This is the Jupyter notebook that contains the statistical analysis
-**states.json**: A JSON file containing the geometry of each state.  This is used with Folium to create data maps
-**denver_zipcodes.csv**: Contains the latitude and longitude of each zipcode in Denver.  Used with Folium to map data.
-**california_zipcodes.csv**: Contains the latitude and longitude of each zipcode in California.  Used with Folium to map data.
-**Presentation.pdf**: This is a set of slides which provides a non-technical overview of the project's findings
+- **README.md**: The file you're reading now.
+- **zillow_data.csv**: This is the dataset that will be used for the investigation.  Contains median house prices for each zipcode 1996 to 2018.
+- **mod_4_project.ipynb**: This is the Jupyter notebook that contains the statistical analysis
+- **states.json**: A JSON file containing the geometry of each state.  This is used with Folium to create data maps
+- **denver_zipcodes.csv**: Contains the latitude and longitude of each zipcode in Denver.  Used with Folium to map data.
+- **california_zipcodes.csv**: Contains the latitude and longitude of each zipcode in California.  Used with Folium to map data.
+- **Presentation.pdf**: This is a set of slides which provides a non-technical overview of the project's findings
